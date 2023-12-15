@@ -1,0 +1,11 @@
+{
+    "name" : "Sergey",
+    "age" : 44,
+    "sex" : "Male",
+    "iin" : 3432,
+    "phone" : ["+38050", "79954"],
+    "email" : {
+        "gmail" : "dfsdf@gmail.com",
+        "ya" : "fsfsd@yandex.ru"
+    }
+}
