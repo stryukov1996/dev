@@ -867,3 +867,184 @@
 // console.log(hyper.parentElement.nextElementSibling);
 // console.log(hyper.parentElement.previousElementSibling);
 
+// Ajax Unit
+// $(document).ready(function(){
+//     $('.go').on('click', myAJAX3);
+// });
+// function myAJAX(){
+//     $.get(
+//         'script.php',
+//         {
+//             'a' : $('#num1').val()
+//         },
+//         function(data){
+//             console.log(data);
+//         }
+//     );
+// }
+// function myAJAX2(){
+//     $.ajax({
+//         url : 'script.php',
+//         type : 'GET',
+//         data : {
+//             'a' : $('#num1').val()
+//         },
+//         success : function(data){
+//             console.log(data);
+//         }
+//     });
+// }
+
+// AJAX Работа с файлами
+// $(document).ready(function(){
+//     $('.ttt').on('change', function(){
+//         $('#out').load( $('.ttt option:selected').val() + '.txt' ); // здесь создать соответствущие txt файлы
+//     });
+//     $.getJSON('person.json',function(data){
+//         console.log(data);
+//     });
+// });
+
+// AJAX Логирование
+// function myAJAX3(){
+//     $.ajax({
+//         url : 'script.php',
+//         type : 'POST',
+//         data : {
+//             login : $('#login').val(),
+//             pass : $('#pass').val(),
+//         },
+//         success : function(data){
+//             console.log(data);
+//             if (data == '1') {
+//                 alert('Ждите');
+//                 window.open('https://mg.golden-studio.com/main.php', '_blank');
+//             }
+//         }
+//     });
+// }
+
+// AJAX Прогноз погоды (доделано не все, урок тут https://www.youtube.com/watch?v=99IYij4smC0)
+// $(document).ready(function(){
+//     $.get(
+//         'https://api.openweathermap.org/data/2.5/weather',
+//         {
+//             'id' : '473247',
+//             'appid' : '87104048c089789b1e163f276aebdb90'
+//         },
+//         function(data){
+//             console.log(data);
+//             console.log(data.main);
+//             console.log('Погода: ' + data.weather[0].main);
+//             console.log('Температура: ' + Math.round(data.main.temp-273));
+//             console.log('Влажность: ' + data.main.humidity);
+//             console.log('Видимость: '+ data.visibility / 1000);
+//         }
+//     );
+// });
+
+// Бургер меню
+// document.getElementById('result').onclick = getResult;
+
+// window.onload = function(){
+//     getResult();
+// }
+
+// function getResult(){
+//     let menu = document.getElementsByClassName('menu');
+//     let cost = 0;
+//     let kkal = 0;
+//     for (let i = 0; i < menu.length; i++) {
+//         if (menu[i].checked) {
+//             cost += parseFloat(menu[i].getAttribute('data-cost'));
+//             kkal += parseFloat(menu[i].getAttribute('data-kkal'));
+//         }
+//     }
+//     document.getElementById('cost').innerHTML = cost;
+//     document.getElementById('kkal').innerHTML = kkal;
+// }
+
+// Прогресс бар и таймер
+// let time = document.getElementById('time');
+// time.onchange = function(){
+//     userProgress(time.value);
+// }
+
+// function userProgress(time){
+//     let start = 0;
+//     time = Math.round(time * 1000 / 100);
+//     let progressElement = document.getElementById('user-progress');
+//     let interval = setInterval(function(){
+//         if (start > progressElement.max) {
+//             clearInterval(interval);
+//             userProgressCallback();
+//         } else {
+//             progressElement.value = start;
+//             start++;
+//         }
+//     }, time);
+// }
+// function userProgressCallback(){
+//     document.querySelector('.hidden').style.display = 'block';
+// }
+
+// Всплывающее по таймеру окно на Bootstrap 5
+// let myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+// window.onload = function(){
+//     if (localStorage.getItem('modalYes') != 1) {
+//         showModal();
+//     }
+// }
+// function showModal(){
+//     setTimeout(function(){
+//         myModal.show();
+//     }, 1000);
+//     document.querySelector('.yes').onclick = function(){
+//         localStorage.setItem('modalYes', 1);
+//         myModal.hide();
+//     }
+// }
+
+// Запускаем скрипт через неделю
+// function alertInfo(){
+//     alert('Заплати за сайт');
+// }
+// function checkTime(){
+//     let timeInSec = Math.round(Date.now() / 1000);
+//     if (timeInSec > 1702843820) {
+//         alertInfo();
+//     }
+//     console.log(timeInSec);
+// }
+// checkTime();
+
+// Код Цезаря
+// const offset = 3;
+// document.getElementById('in').oninput = function(){
+//     let str = this.value;
+//     let out = '';
+//     for (let i = 0; i < str.length; i++) {
+//         let code = str.charCodeAt(i);
+//         if (code == 120 || code == 121 || code == 122 || code == 88 || code == 89 || code == 90) {
+//             code = code - 23;
+//         } else {
+//             code = code + offset;
+//         }
+//         out += String.fromCharCode(code);
+//     }
+//     document.getElementById('out').innerHTML = out;
+// }
+// document.getElementById('in2').oninput = function(){
+//     let str = this.value;
+//     let out = '';
+//     for (let i = 0; i < str.length; i++) {
+//         let code = str.charCodeAt(i);
+//         if (code == 97 || code == 98 || code == 99 || code == 65 || code == 66 || code == 67) {
+//             code = code + 23;
+//         } else {
+//             code = code + offset;
+//         }
+//         out += String.fromCharCode(code);
+//     }
+//     document.getElementById('out2').innerHTML = out;
+// }
